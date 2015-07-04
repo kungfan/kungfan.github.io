@@ -1,0 +1,26 @@
+---
+layout: nil
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <atom:link href="http://www.paperplanes.de/rss.xml" rel="self" type="application/rss+xml" />
+    <title>kongfan's blog</title>
+    <link>kongfan.github.io</link>
+    <language>en</language>
+    <webMaster>kongfan@outlook.com (KongFan)</webMaster>
+    <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
+    <copyright>Copyright 2014</copyright>
+    <ttl>60</ttl>
+    <description>RSS feed for KongFan's blog</description>
+    {% for post in site.posts %}
+    <item>
+      <title>{{ post.title }}</title>
+      <link>{{ post.url }}</link>
+      <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
+      <guid>{{ post.url }}</guid>
+      <description>{{ post.content | xml_escape }}</description>
+    </item>
+    {% endfor %}
+  </channel>
+</rss>

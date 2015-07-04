@@ -1,0 +1,107 @@
+---
+layout: post
+location: Huang Gang
+---
+
+Scrapy是一个由Python开发的一个快速,高层次的屏幕抓取和web抓取框架,用于抓取web站点并从页面中提取结构化的数据.Scrapy用途广泛,可以用于数据挖掘、监测和自动化测试,scrapy能很方便的从互联网上爬取信息,进行数据提取与加工,比如我们想得到往期3D彩票的开奖结果,手工复制太麻烦,写个爬虫就能很方便的从网络上爬取网站中奖结果,然后进行数据统计与分析,指导下次彩票的购买；比如我们看到某个网站是很多漂亮的图片或优美文章,我们也不用手工复制,直接用爬虫爬取,导入数据库或保存在本地,相当方便.scrapy是一个开源工具,任何人都可以得到scrapy的源码,并且可以很方便的根据自己的需求进行修改,下面我来介绍下这个框架：
+
+####安装scrapy
+
+我用的是linux开发环境,这里介绍下scrapy在linux下的安装,window环境的用户自行查看[官网的文档](http://scrapy.org/doc/),里面有详细的安装教程.注意：目前(2014.06)Scrapy只能支持python2.7,不支持python2.6或python3.scrapy在linux下的安装非常简单：一个`easy_install Scrapy`命令就搞定了.
+
+####创建项目
+
+scrapy安装好以后,要创建一个爬虫项目,我们只需要执行以下命令：`scrapy startproject project`, 项目就为你创建好了.project为你所创建的项目的名称,运行此命令后,你所处的当前目录下中就会创建一个*project*文件夹.我们还要再在project/spider/目录下新建一个spider.py文件,这是爬虫的主体.这个项目文件夹包括以下内容：
+
+    .
+    ├── scrapy.cfg
+    └── tutorial
+        ├── __init__.py
+        ├── items.py
+        ├── pipelines.py
+        ├── settings.py
+        └── spiders
+            ├── __init__.py
+            └── spider.py
+
+<p></p>
+通常来讲,一个scrapy爬虫项目中都会包含这些文件,它们在项目中起的作用各不相同.
+
+* `scrapy.cfg`是项目的配置文件.
+
+* `project/目录`是项目的python包,模块文件都在其中.我们主要的工作就是在该目录下修改或创建文件,开发我们的项目.
+
+* `project/spider.py`
+是我们编写用于从网站爬取数据的类.其包含了一个用于下载的初始URL,如何跟进网页中的链接以及如何分析页面中的内容, 提取生成 item 的方法.一个Spider必须继承自scrapy.Spider类, 且要定义以下三个属性:
+
+
+ • name: 用于区别Spider. 该名字必须是唯一的,不能为不同的Spider设定相同的名字.我们启动爬虫时要用到这个name.   
+ • start_urls: 包含了Spider在启动时进行爬取的url列表. 因此,第一个被获取到的页面将是其中之一. 后续的URL则从初始的URL获取到的数据中提取.   
+ • parse() ：是spider的一个方法. 被调用时,每个初始URL完成下载后生成的 Response 对象将会作为唯一的参数传递给该函数. 该方法负责解析返回的数据(response data),提取数据(生成item)以及生成需要进一步处理的URL的 Request 对象.   
+
+我们编写的蜘蛛代码如下：
+
+{% highlight python %}
+
+from scrapy.contrib.spiders import CrawlSpider, Rule
+from scrapy.contrib.linkextractors.sgml import SgmlLinkExtractor
+from scrapy.selector import Selector
+
+from cnbeta.items import CnbetaItem
+
+class CBSpider(CrawlSpider):
+    # 蜘蛛的名字 cnbeta,不能和其他蜘蛛名重复
+    name = 'cnbeta'
+    allowed_domains = ['cnbeta.com']
+    # 蜘蛛爬行的起始url
+    start_urls = ['http://www.cnbeta.com']
+    # 爬行路径的规则
+    rules = ( Rule (SgmlLinkExtractor(allow=(r'/articles/.*\.htm'),),\
+    follow= True),)
+
+    def parse(self, response):
+        sel = Selector(response)
+        item = CnbetaItem()
+        item['title'] = sel.xpath('//title/text()').extract()
+        item['url'] = response.url
+        return item
+
+{% endhighlight %}
+
+
+以上是一个最简单的爬虫,继承自crawlspider类,拥有rules属性.通过这个爬虫我们可以提取cnbeta中文章的标题和地址,然后进行存储或其他处理.
+
+* `project/items.py` 是我们定义需要提取的数据文件,我们可以在这里定义我们需要的数据.在这个项目中items.py的定义如下：  
+
+<p></P>
+    
+{% highlight python %}
+
+# Define here the models for your scraped items
+
+from scrapy.item import Item, Field
+
+class CnbetaItem(Item):
+    title = Field()
+    url = Field()
+
+{% endhighlight %}
+
+Item是保存爬取到的数据的容器；其使用方法和python字典类似,我们需要提取每篇文章的标题,链接,与之对应的就是item.py中的title,url字段,我们可以通过CnbetaItem的实例item的属性调用或存储数据,如item.title;item.url使用相应的数据.
+
+* `project/pipelines.py`是项目中的pipelines文件,当Item在Spider中被收集之后,它将会被传递到ItemPipeline,一些组件会按照一定的顺序执行对Item的处理,比如清理html数据或将爬取的数据存入到数据库中.
+
+
+* `project/settings.py`setting.py文件能让你个性化配置所有的scrapy组件,比如开启下载图片组件,设置连接时间等等.
+* `project/spiders/` 是放置爬虫的文件夹,我们编写的爬虫就在这个文件夹中.上面已经介绍了spider的编写.要启动爬虫，我们在项目的目录中运行`scrapy crawl cnbeta` 命令，其中cnbeta为爬虫的名称,是我们在编写spider class时为spider name属性所赋的值.
+
+
+**P.S.** : scrapy功能非常强大,配置起来也十分简单,新手上手较快.但目前中文资料较少,深入学习会有一些难度,比如分布式爬虫的部署,多爬虫的相互配合等难度较大.顺便说一句,当年google的第一只搜索爬虫就是用python写的.python确实是门不错的语言.
+
+
+**参考** ：
+
+****
+
+[1] pluskid. [Scrapy轻松定制网络爬虫](http://blog.pluskid.org/?p=366). 2009.   
+[2] [summer](http://marchtea.com/)等. [Scrapy中文文档](http://scrapy-chs.readthedocs.org/zh_CN/latest/index.html#). 2014

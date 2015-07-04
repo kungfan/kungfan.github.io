@@ -1,0 +1,131 @@
+---
+layout: post
+location: Huang Gang
+---
+
+在读flask源码的时候,看到一句`from flask import Flask`;开始以为Flask是一个模块；但是在flask源码中找确不到Flask.py;然后又以为Flask是flask.py模块中的一个对象,可是flask源码目录中根本就没有flask.py这个文件；我怀疑`Flask.*`或`flask.*`没有放在当前目录中；就在系统范围内搜索这两个文件,发现这两个文件并不存在.最后我在flask包下的`__init__.py`文件中找到了蹊跷；Flask是app模块中的一个类；在导入模块flask的时候就已经将app模块导入了,所以就没有写成*from flask.app improt Flask*.现在,来回顾一下python中包、模块的相关知识加深印象.
+
+##模块(module)
+模块可以理解为一个*.py文件,其包含所有你定义的函数和变量.模块可以提高代码的复用性,当你在其他程序中要使用模块中的变量或函数时,你只需要将该模块导入即可.通常,模块的导入方法是:`import "模块文件名"`,比如flaskr_tests.py中导入os模块,使用os模块中的函数时必须加上命名空间,比如调用os中close函数,必需用`os.close()`才能调用,否则会报错.
+
+{% highlight python %}
+
+import os
+
+def tearDown(self):
+    
+    """Get rid of the database again after each test."""
+        
+    os.close(self.db_fd)
+    os.unlink(flaskr.app.config['DATABASE'])
+
+{% endhighlight %}
+
+如果想直接调用close函数该怎样做呢？我们可以使用 `from...import...`语句;使用from语句可以将模块中的对象直接导入到当前的名字空间. from语句不创建一个到模块名字空间的引用对象,而是把被导入模块的一个或多个对象直接放入当前的名字空间: 上面的代码可以改写为：
+
+{% highlight python %}
+
+import os import close,unlink
+
+def tearDown(self):
+    
+    """Get rid of the database again after each test."""
+        
+    close(self.db_fd)
+    unlink(flaskr.app.config['DATABASE'])
+
+{% endhighlight %}
+
+##包(package)
+什么是包？简单的理解就是 "包是模块的集合",包是为了更加方便的分清层次,组织模块.通常包是一个目录,包目录下有一个名为`__init__.py`的文件,一些模块文件以及子目录,假如子目录中也有`__init__.py`那么它就是这个包的子包了.我们可以看一下flask包的目录结构：
+
+    flask.
+    ├── app.py
+    ├── blueprints.py
+    ├── _compat.py
+    ├── config.py
+    ├── ctx.py
+    ├── debughelpers.py
+    ├── ext/
+    │   └── __init__.py
+    ├── exthook.py
+    ├── globals.py
+    ├── helpers.py
+    ├── __init__.py
+    ├── json.py
+    ├── logging.py
+    ├── module.py
+    ├── sessions.py
+    ├── signals.py
+    ├── templating.py
+    ├── testing.py
+    ├── views.py
+    └── wrappers.py
+
+注：上图由[ASCIIFlow](http://asciiflow.com/)生成.	
+
+和导入模块一样,我们用import语句可以将包中模块导入到程序中,通常有以下几种方式：
+
+* import flask.app 
+# 导入模块flask.app,只能以全名访问模块属性,例如 flask.app.Flask(__name__). 
+
+* from flask import app 
+# 导入模块app,只能以app.属性名 这种方式访问模块属性,例如 app.Flask(__name__).
+
+* from flask.app import Flask 
+# 导入模块app ,并将类Flask放入当前名称空间,直接访问被导入的属性,例如 Flask(__name__).
+
+* from flask.app import Flask as f 
+# 使用Flask的别称f访问被导入的属性,例如 f(__name__).
+
+无论一个包的哪个部分被导入, 在文件`__init__.py`中的代码都会运行.这个文件的内容允许为空,不过通常情况下它用来存放包的初始化代码.导入过程遇到的所有`__init__.py`文件都被运行.比如：
+`import flask.testsuite.test`语句会依次运行flask和testsuite文件夹下的`__init__.py`文件.
+
+正如文章开头提到的,我们要将flask包下app模块中的Flask类导入当前程序的命名空间中,一般我们应该这样：`from flask.app import Flask`,但是`from flask import Flask`同样可以得到我们的结果,这是怎么回事呢？ 答案就在flask包的`__init__.py`中.
+
+{% highlight python %}
+
+# -*- coding: utf-8 -*-
+__version__ = '0.10.1'
+
+# utilities we import from Werkzeug and Jinja2 that are unused
+# in the module but are exported as public interface.
+from werkzeug.exceptions import abort
+from werkzeug.utils import redirect
+from jinja2 import Markup, escape
+from .app import Flask, Request, Response  # 导入app模块中的Flask类
+from .config import Config
+from .helpers import url_for, flash, send_file, 
+send_from_directory, get_flashed_messages, get_template_attribute,
+     make_response, safe_join, stream_with_context
+from .globals import current_app, g, request, session, 
+     _request_ctx_stack,_app_ctx_stack
+from .ctx import has_request_context, has_app_context, 
+     after_this_request, copy_current_request_context
+from .module import Module
+from .blueprints import Blueprint
+from .templating import render_template, render_template_string
+from .signals import signals_available, template_rendered, 
+     request_started,request_finished, got_request_exception, 
+request_tearing_down, appcontext_tearing_down, appcontext_pushed,
+     appcontext_popped, message_flashed
+from . import json
+jsonify = json.jsonify
+from .sessions import SecureCookieSession as Session
+json_available = True
+
+{% endhighlight %}
+
+flask包在导入后`__init__.py`文件会执行,其中`from .app import Flask,...`就将Flask类导入当前命名空间中了,我们可以直接使用Flask类来创建对象:   
+`app = Flask(__name__)`,而不用写成`app = app.Flask(__name__)`.
+
+最后说明两点：①当Python导入一个包时,它定义了一个包含目录列表的特殊变量`__path__ `,它用于查找包的模块(`__path__`与sys.path变量的作用相似). 可以在`__init__.py`文件中访问`__path__`变量.这个列表的初始值只有一个元素.即包的目录.只要你觉得必要,一个包也可以到其他的目录中去(在__path__增加要搜索的目录)搜索模块.(换言之,一个模块可以属于一个包,却不位于这个包所在的目录或子目录下. ②若我们想要查看我们所导入的模块中有哪些变量,函数,类时,我们可以用python内建的dir()函数去列出一个模块所定义的所有属性.dir(模块名)返回模块的所有属性列表
+
+
+**P.S.** : 理解python模块的导入,我们首先要理解python中一个重要的概念：*命名空间*,理解了name space 作用域后 import 相关的问题就不难理解了.
+
+**参考** ：
+
+******
+
+[1] 啄木鸟社区.Python Essential Reference.[模块和包](http://wiki.woodpecker.org.cn/moin/PythonEssentialRef8).2009

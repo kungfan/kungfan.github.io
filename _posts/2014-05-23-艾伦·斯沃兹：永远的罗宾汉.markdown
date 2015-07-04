@@ -1,0 +1,40 @@
+---
+layout: post
+location: Huang Gang
+---
+
+写这篇文章是为了大家知道这世上曾经有这样一位青年，为我们的自由奋斗过。    
+
+我毫不隐藏自己情感上对艾伦·斯沃兹的偏袒，支持这样一位为信息自由流动，赋权于民而不懈奋斗的青年才俊，即使从理性的角度讲，他的所作所为的确有很多值得商榷的地方。
+
+艾伦·斯沃兹([Aaron·Swartz](http://baike.baidu.com/view/7854319.htm))是这个时代的罗宾汉。毫无疑问，他对得起这个称号。这样一位天才的程序员，只是为了为了让知识流通更顺畅，从贪婪的出版商那里拿回来了属于全人类的财富，下载了JSTOR中的学术期刊，却被迫以死来捍卫他的荣誉：2013年1月11日艾伦·斯沃兹在纽约自杀，年仅26岁。
+
+####天才的艾伦·斯沃兹
+艾伦·斯沃兹天赋秉异，14岁时就参与[RSS](http://baike.baidu.com/subview/1644/7031575.htm)标准的创立，成为W3C·RDF核心工作小组的成员, 他还是社交新闻网站[Reddit](http://www.reddit.com/)和[Jottit](http://www.jottit.com/)创始人之一,轻量级Python web框架[web.py](http://webpy.org/)的作者,与John Gruber共同设计了排版语言[Markdown](http://daringfireball.net/projects/markdown/)，让网络书写更加美观，流畅。
+
+这位才华横溢的程序员，除了在科技领域取得非凡成就外，他还热衷于社会分析及政治运动，是一位为互联网自由开放平等而奋斗的先驱。2007年艾伦·斯沃兹参与创建了开放图书馆[Open Library](https://openlibrary.org/)，试图为每一本书创建一个主页。它是一个开放性网站，所有人都可以自由地编辑。2008年他又推出了游击队自由访问宣言[Guerrilla Open Access Manifesto](http://openaccessmanifesto.org/)，宣称不论信息存储在何处，他们都将义不容辞地「获取信息，建立备份，并同全世界分享」.他还和法学家莱斯格合作，参与知识共享[Creaive Commons](http://creativecommons.org)的技术团队，投身技术自由事业,推动知识信息自由流动。
+
+艾伦·斯沃兹是Change Congress的理事，维基百科的活跃志愿者。他对维基百科的分析文章`Who Writes Wikipedia?`获得了广泛关注并被广泛引用。而且他还是The Semantic Web: A Network of Content for the Digital City一书的共同作者。2010年，不到30的艾伦斯沃兹成为哈佛大学Safra Center for Ethics的高级研究员,在那里，他与Lawrence Lessig教授进行了合作,完成了关于体制腐败的研究工作.
+他还是求进会[Demand Progress](http://www.demandprogress.org/)的创始人之一，该组织致力于谴责网络审查，是反对禁止网络盗版法案[SOPA](http://baike.baidu.com/subview/268902/7538536.htm)的中流砥柱。
+ 
+####PACER及JSTOR 事件
+2009年,艾伦·斯沃兹利用公共图书馆获得的临时免费权限，从*公众获取电子版法庭记录系统*的5亿份记录中下载了1800万页的信息(大约20%的内容,正常访问每篇要付费10美分),直至这一权限被废止。这些信息最后被放到了“互联网图书馆馆长”[卡尔·马拉默德](http://en.wikipedia.org/wiki/Carl_Malamud)的public.resource.org上。联邦调查局对此立案调查，但并未提起诉讼。此事最终不了了之。
+
+2011年7月，艾伦·斯沃兹进入麻省理工学院网络,用他自己写的脚本，从著名的期刊数据库JSTOR上下载了大约 500万份学术论文和评论文章,理论上，他可以下载JSTOR数据库里的所有内容,由于他不断变换IP和MAC地址，躲过封锁，JSTOR无计可施，被迫禁止所有MIT用户访问，长达四天。随后他被波士顿警方逮捕并被诉讼,如果所有罪名成立，他将面临最多35年刑罚以及上百万美元的罚款。他的家人和朋友深信他在这一事件上受到政府不公正的对待，此事在美国互联网和学术界引发广泛关注，超过4.5万人为他签名请愿，。后来艾伦·斯沃兹和JSTOR达成民事和解，JSTOR开放了系统中所有公共领域的文章,200多种期刊的近50万篇论文。但不幸的是，我们还是失去了网络大众中最不同寻常的人物，天才的艾伦·斯沃兹最终离我们而去。离世前，他为 Avaaz 基金会工作。这是一个非盈利组织。​
+
+
+**PS.** : 我个人一直受益于艾伦·斯沃兹所作的杰出而又无私的工作。我非常喜欢用艾伦发明的RSS阅读订阅的文章，这让我能聚焦于我所关注的文章内容，及时高效的阅读文章而不受干扰，拥有十分良好的阅读体验。即使是在伟大的[Google Reader](http://baike.baidu.com/view/631075.htm)被关闭的今天，我依然保持着用RSS阅读的习惯。作为Python爱好者，艾伦所开发的开源web框架：web.py是我学习Python的典范，优雅的代码，简洁易用，而功能也十分强大。还有本文就是用他参与设计的`markdown`格式写成，本文所采用的授权协议也是采用他所参与建立的`知识共享协议Creative Commons`。
+
+**参考** ： 
+
++  [怀念艾伦·斯沃兹](http://www.rememberaaronsw.com/memories/)
++  [艾伦·斯沃兹的个人网站](http://www.aaronsw.com/)
++  [赫芬顿邮报关于艾伦·斯沃兹的报道](http://www.huffingtonpost.com/tag/aaron-swartz/)
++  [维基百科关于艾伦·斯沃兹的介绍](http://en.wikipedia.org/wiki/Aaron_Swartz)
++  [百度百科关于艾伦·斯沃兹的介绍](http://baike.baidu.com/view/7854319.htm)
++  [艾伦·斯沃兹创立的求进会](http://www.demandprogress.org/)
++  [艾伦·斯沃兹创办的开放图书馆](https://openlibrary.org/)
++  [阮一峰老师对艾伦·斯沃兹的评论](http://www.ruanyifeng.com/blog/2011/08/copyright_of_academic_papers.html)
++  [知乎上关于艾伦·斯沃兹的讨论](http://www.zhihu.com/question/20710277)
++  [知识共享网站对艾伦·斯沃兹的回忆](http://creativecommons.org/weblog/entry/36298)
++  [艾伦·斯沃兹参与创建的互联网档案馆](www.archive.org)

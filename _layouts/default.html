@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="keywords" contect="孔凡，孔凡的博客，kongfan.org，kongfan，kongfan's blog"> 
+        <meta name="DEscription" contect="孔凡的个人博客">
+        <meta name="Robots" contect= "all"> 
+        <meta name="viewport" content="width=device-width">
+        <meta name="baidu-site-verification" content="DRCj5g23TZ" />
+        <script src="http://s11.cnzz.com/z_stat.php?id=1255282387&web_id=1255282387" language="JavaScript" type="hidden"></script>
+
+        <title>{{ page.title }}</title>
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+        <!-- % include fork_me_github.html %-->
+        <div class="site">
+          <div class="header">
+		  <h1 class="title"><a href="/"> { 孔  凡 } </a></h1>
+            <a class="extra" href="/list.html">博  文</a>
+            <a class="extra" href="/about.html">『 关于我 』</a>
+          </div>
+
+          {{ content }}
+
+          <div class="footer">
+            <div class="contact">
+              <p>
+            http://en.kongfan.org<br />
+		        kongfan@outlook.com<br />
+              </p>
+            </div>
+            <div class="contact">
+              <p>
+                <a href="http://en.kongfan.org">英文站</a><br />
+                <a href="mailto:kongfan@outlook.com">联系我</a><br />
+              </p>
+            </div>
+            <div class="rss"><p><a href="/rss.xml"><img src="/images/rss_feed.png"/>  订阅博客 </a></p></div> 
+            <div><p>{% include creative_common_lisences.html %}</p></div> 
+          </div>
+        </div>
+    </body>
+</html>

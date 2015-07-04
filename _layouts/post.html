@@ -1,0 +1,16 @@
+---
+layout: default
+---
+<h2>{{ page.title }}</h2>
+<p class="meta">{{ page.date | date_to_string }} <span style="padding-left: 20px"> {{ page.location | location }}</span></p>
+
+<div class="post">
+{{ content }}
+</div>
+
+<!-- add disqus to the aticle, disqus_comment; count_comment -->
+
+<div id="bm_comments"></div>
+{% include disqus_comment.html %}
+{% include count_comment.html %}
+<!-- {% include baye_comment.html %} -->

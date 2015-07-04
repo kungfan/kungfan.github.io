@@ -1,0 +1,54 @@
+---
+layout: post
+location: Huang Gang
+---
+
+好的事物总会让人迫不及待想和他人分享，好的软件同样如此.一个设计优良，注重细节的软件产品会让你在工作学习中得心印手，在极大提高你工作效率之余会让你忍不住惊叹作者缜密的思维，精湛的技巧，能设计出如此经典的作品.下面就介绍一些我最喜欢的的软件`『如图』`：
+
+![我最喜欢的软件](/images/tools.gif)
+
+在 介绍这些工具之前，我先跟大家分享几个网站：
+
++ [PortableApps可便携软件](http://portableapps.com/) ：完全开放免费的便携软件下载平台.
++ [PortableAppC中文便携软件](http://www.portableappc.com/) ：纯净、轻便、严谨、可靠的富有中国特色的高品质便携软件    
+
+<p></P>  
+
+####文本/代码编辑器
+文本/代码编辑器是日常 工作学习中使用频率最高的工具之一.一款好的编辑器总能让你事半功倍，大大提高编辑效率.目前我主要使用的编辑器是gvim, 有时候中文编辑也用sublime text .
+
+[gvim][]被誉为编辑器之神Vim的图形前端，它是跨平台的编辑器，基本上所有主流的操作系统上面都有它的版本.Gvim支持中文及其各种编码，这是个极具Unix特色和风格的编辑器.
+gvim/vim 的设计理念是命令的组合，你可以纯键盘完成包括复制在内所有的编辑操作.它有一个相对陡峭的学习曲线，刚开始上手可能会需要一些时间，但等你熟悉了gvim/vim风格的快捷键后你就会完全喜欢上这个看起来UI有些丑陋的编辑器，编辑处理文字代码得心应手，尤其是在编辑英文和代码的时候.vim/gvim还具有高度可定制性，支持插件，你可以在数千个优秀的插件中找到满足你需求的插件，使gvim/vim的功能更加强大.这里是[gvim的下载地址][]，同样你也可以在portableapps下载
+[便携版](http://portableapps.com/apps/development/gvim_portable)
+
+[gvim]:http://www.vim.org/index.php
+[gvim的下载地址]:ftp://ftp.vim.org/pub/vim/pc/gvim74.exe
+
+[SublimeText]((http://www.sublimetext.com)是一个代码编辑器,支持多种编程语言的语法高亮、拥有优秀的代码自动完成功能，还拥有代码片段的功能，可以将常用的代码片段保存起来，在需要时随时调用，像所有优秀的软件一样，这个编辑器也具有良好的扩展功能，支持VIM模式，支持宏，右边没有滚动条，而是代码缩略图，便于定位.这里是SublimeText的[官方下载地址](http://www.sublimetext.com/2), 你也可以下载便携版.(Sublime Text 2是收费软件，但可以无限期试用)
+
+和vim齐名的[emacs](http://www.gnu.org/software/emacs/)，被誉为神的编辑器，两者有各自的优势特点，难分伯仲.但我没有深入使用研究过emacs.emacs是大神[RSM](https://www.stallman.org/)所开发，有兴趣的同学可以去[官网下载](http://www.gnu.org/software/emacs/).
+
+#####网页浏览器
+在互联网时代，网页浏览器可以说是使用频率最高的软件，Google甚至开发了一个基于谷歌浏览器的轻量级开源操作系统[Google Chrome OS](http://baike.baidu.com/view/2627636.htm).在这个浏览器的时代，一款使用顺手的浏览器可以大大提高你获取信息的效率.目前我在使用firefox+pentadacytl插件，让我浏览网页的操作vim化.火狐firefox是一款支持插件扩展的浏览器，你可以下载你喜欢的插件，强化firefox的功能，pentadactyl其实就是一款让firefox操作vim化的插件.
+
++ [firefox官方网站](http://www.firefox.com.cn/) [官方下载](http://www.firefox.com.cn/download/) [便携版下载](http://portableapps.com/apps/internet/firefox_portable)
++ [pentadactyl官方网站](http://5digits.org/pentadactyl/) [插件下载](http://5digits.org/pentadactyl/#sect-download)        
+
+<p></P>
+
+#####文件管理器
+[total commander](http://baike.baidu.com/view/466998.htm)(简称TC)是一款极其优秀的文件管理器，和很多经典软件一样，TC也没有让人惊艳的外表，其貌不扬甚至有些老气的UI很有可能让你错过这款功能强大的软件的软件.TC除了支持其他文件管理器一样的常规操作外，还支持文件压缩解压缩，文件校验，批量重命名，文件预览，歌曲播放，快速定位等其他很多实用功能，和许多优秀的软件一样，TotalCommander也支持插件系统，你可以下载配置你喜欢的插件，扩展TC的功能.如果你像我一样，对vim操作情有独钟，强烈推荐一款AHK脚本:[vimdesktop](https://github.com/victorwoo/vimdesktop)，让你的TC快捷键操作vim化。
+
+*   [Totalcommander官网](http://www.ghisler.com/)
+*   [vimdesktop下载地址](https://github.com/victorwoo/vimdesktop)        
+
+<p></P>
+
+#####代理工具
+[GoAgent](https://code.google.com/p/goagent/)是一款使用跨平台语言Python开发的开源代理软件，利用Google AppEngine的服务器充当代理，帮助用户浏览被封锁的内容，是看Youtube视频，刷Twitter，上Facebook的绝佳神器.goagent[官网](https://code.google.com/p/goagent/)上有该软件的教程及详细介绍，翻墙者必备之佳品.
+
+####版本控制
+[git](http://baike.baidu.com/subview/1531489/12032478.htm)是一个分布式的版本控制系统，由linux系统创始人[Linus Torvalds](http://baike.baidu.com/view/117611.htm)编写，用作Linux内核代码的管理。GitHub是git服务器的web实现，可以托管各种git库，并提供一个web界面，为一个项目贡献代码非常简单：首先点击项目站点的“fork”的按钮，然后将代码检出并将修改加入到刚才分出的代码库中，最后通过内建的“pull request”机制向项目负责人申请代码合并。作为开源代码库以及版本控制系统，Github目前拥有140多万开发者用户。随着越来越多的应用程序转移到了云上，Github已经成为了管理软件开发以及发现已有代码的首选方法。github不仅可以进行代码管理，还可以对其他任何需要进行版本控制，文件公开，多人协作的内容进行管理，比如你可以和别人合作写书，翻译文档等，美国一些地方政府就将市政府文件托管在github上，供市民查阅及提供修改意见。你可以再[github官方网站](https://github.com/)上下载git客户端，支持多系统（windos，linux，OS X）。
+
+####其他精选
+还有很多软件，诸如小巧精悍的阅读器 [sumatra pdf](http://code.google.com/p/sumatrapdf/) ，密码管理工具[keepass](http://www.keepass.info/)，文件加密工具[TrueCrypt](http://truecrypt.sourceforge.net/)等，都是非常优秀的软件，本文不一一介绍了，感兴趣的同学可以上它们的官网上看看.

@@ -1,0 +1,41 @@
+---
+layout: default
+title: 
+---
+
+<div id="home">
+  <h1>最新文章</h1>
+  <ul class="posts">
+    {% for post in site.posts %}
+      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+
+  <h1>演讲视频</h1>
+  <ul class="posts">
+    <li><span>05 May 2014</span> &raquo; <a href="http://www.tndao.com/"> 听道: 一个世界各界精英同台分享智慧与社会新观点的聚会。 </a></li>
+    <li><span>01 May 2014</span> &raquo; <a href="http://www.tedtochina.com/">TED中国: 传播TED资讯，实践TED精神，推动TED中文社区的发展。</a></li>
+    <li><span>25 May 2014</span> &raquo; <a href="https://www.coursera.org/">Coursera: 免费学习世界上上最好开放课程。</a></li>
+  </ul>
+
+  <h1>书与电影</h1>
+  <ul class="posts">
+    <li><span>12 May 2010</span> &raquo; <a href="http://movie.douban.com/subject/1292052/">电影: 肖申克的救赎</a></li>
+    <li><span>18 May 2014</span> &raquo; <a href="http://movie.douban.com/subject/1292656/">电影: 心灵捕手</a></li>
+    <li><span>18 May 2014</span> &raquo; <a href="http://movie.douban.com/subject/1306029/">电影: 美丽心灵</a></li>
+    <li><span>19 May 2014</span> &raquo; <a href="http://movie.douban.com/subject/1291549/">电影: 放牛班的春天</a></li>
+    <li><span>20 May 2014</span> &raquo; <a href="http://movie.douban.com/subject/1433990/">电影: 风雨哈佛路</a></li>
+    <li><span>20 May 2014</span> &raquo; <a href="http://zh.wikipedia.org/wiki/%E6%B4%BB%E7%9D%80_(%E9%9B%BB%E5%BD%B1)">电影: 活着</a></li>
+    <li><span>25  Nov 2010</span> &raquo; <a href="http://movie.douban.com/subject/1304972/">电影: 太极旗飘扬 </a></li>
+    <li><span>20 May 2014</span> &raquo; <a href="http://movie.douban.com/subject/1291875/">电影: 阳光灿烂的日子 </a></li>
+    <li><span>20 May 2014</span> &raquo; <a href="http://movie.douban.com/subject/21937445/">电影: 辩护人 </a></li>
+  </ul>
+  <h1>有趣的事 </h1>
+  <ul class="posts">
+      <li><a href="http://www.vim.org">Vim</a> : 高效，灵活，可自由配置的文本编辑器 - 编辑器之神。</li> 
+      <li><a href="http://jekyllrb.com">Jekyll</a> : 一个 ruby 实现的静态网站生成器。</li>
+      <li><a href="http://scrapy.org">Scrapy</a> : 一个 python 实现的网络爬虫框架。</li>
+      <li><a href="https://code.google.com/p/goagent/">GoAgent</a> : 一个突破封锁的代理软件，让你发现更广阔的世界。</li>
+      <li><a href="http://5digits.org/pentadactyl/">Pentadactyl</a> : 像用VIM一样用firefox浏览网页。</li>
+  </ul>
+</div>
